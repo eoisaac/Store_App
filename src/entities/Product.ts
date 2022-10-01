@@ -2,7 +2,6 @@ export interface ProductProps {
 	id: string
 	name: string
 	price: number
-	amount: number
 }
 
 export class Product {
@@ -23,9 +22,4 @@ export class Product {
   get price () {
     return this.props.price
   }
-
-  get amount () {
-    return this.props.amount
-  }
-
 }
