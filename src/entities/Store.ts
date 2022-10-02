@@ -26,7 +26,15 @@ export class Store {
 		return this.props.balance
 	}
 
+	set balance(balance: number) {
+		this.props.balance = balance
+	}
+
 	get inventory() {
 		return this.props.inventory
+	}
+
+	set inventory(inventory: Inventory) {
+		this.props.inventory = inventory
 	}
 }

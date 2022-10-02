@@ -1,25 +1,25 @@
 export interface ProductProps {
-	id: string
-	name: string
-	price: number
+  id: string
+  name: string
+  price: number
 }
 
 export class Product {
   private props: ProductProps
 
-  constructor (props: ProductProps) {
+  constructor(props: ProductProps) {
     this.props = props
   }
 
-  get id () {
+  get id() {
     return this.props.id
   }
 
-  get name () {
+  get name() {
     return this.props.name
   }
 
-  get price () {
+  get price() {
     return this.props.price
   }
 }

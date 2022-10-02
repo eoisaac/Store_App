@@ -21,7 +21,15 @@ export class Inventory {
 		return this.props.amount
 	}
 
+	set amount(amount: number) {
+		this.props.amount = amount
+	}
+
 	get products() {
 		return this.props.products
+	}
+
+	set products(products: Product[]) {
+		this.props.products = products
 	}
 }

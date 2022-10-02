@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-> Implementar um sistema de vendas! Neste momemnto, o sistema terá apenas as classes e métodos, sem banco de dados. O objetivo é implementar usando os 5 padrões(Criador, Baixo Acoplamento, Alta Coesão, Controlador e Expert) GRASP vistos na última aula.
+> Implementar um sistema de vendas! Neste momemento, o sistema terá apenas as classes e métodos, sem banco de dados. O objetivo é implementar usando os 5 padrões(Criador, Baixo Acoplamento, Alta Coesão, Controlador e Expert) GRASP vistos na última aula.
 > O sistema deverá contemplar as seguintes funcionalidades:
 >
 > - FORNECEDOR fornece PRODUTOS

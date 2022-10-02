@@ -1,12 +1,28 @@
-interface CreateNewOrderRequest {
+import { Inventory } from "../../entities/Inventory";
+import { Product } from "../../entities/Product";
+import { Store } from "../../entities/Store";
+import { calculateProductsListTotalAmount } from '../../utils/calculateProductsListTotalAmount'
+
+interface BuyProductsToInventoryRequest {
+	newProducts: Product[]
+	store: Store
 }
 
-interface CreateNewOrderResponse {
+type BuyProductsToInventoryResponse = Inventory
 
-}
+export class BuyProductsToInventory {
+	async execute(request: BuyProductsToInventoryRequest): Promise<BuyProductsToInventoryResponse> {
+		const { newProducts, store } = request
 
-export class CreateNewOrder {
-	async execute() {
+		const totalAmount = calculateProductsListTotalAmount(newProducts)
 
+		const inventory = store.inventory
+		inventory.products = [...inventory.products, ...newProducts]
+		inventory.amount = inventory.amount + totalAmount
+
+		store.inventory = inventory
+		store.balance = store.balance - totalAmount
+
+		return inventory
 	}
 }

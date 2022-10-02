@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Product } from '../../entities/Product'
 import { Order } from '../../entities/Order'
+import { calculateProductsListTotalAmount } from '../../utils/calculateProductsListTotalAmount'
 
 interface CreateNewOrderRequest {
 	orderProducts: Product[]
@@ -14,9 +15,7 @@ export class CreateNewOrder {
 	async execute(request: CreateNewOrderRequest): Promise<CreateNewOrderResponse> {
 		const { orderProducts, storeId, customerId } = request
 
-		const totalAmount = orderProducts.reduce((acc, product) => {
-			return acc += product.price
-		}, 0)
+		const totalAmount = calculateProductsListTotalAmount(orderProducts)
 
 		return new Order({
 			id: uuidv4(),
