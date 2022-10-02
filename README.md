@@ -48,6 +48,3 @@
     - date: Date
     - products: Products[]
     - amount: number
-    - customerId
-    - supplierId
-    - orderId

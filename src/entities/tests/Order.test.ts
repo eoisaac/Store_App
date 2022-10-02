@@ -23,3 +23,13 @@ test('create order', () => {
 		return acc += product.price
 	}, 0))
 })
+
+test('cannot create an order without products', () => {
+	expect(() => new Order({
+		id: uuidv4(),
+		amount: 37.5,
+		storeId: uuidv4(),
+		customerId: uuidv4(),
+		products: []
+	})).toThrow(Error)
+})

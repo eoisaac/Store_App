@@ -12,6 +12,12 @@ export class Order {
 	private props: OrderProps
 
 	constructor(props: OrderProps) {
+		const { products } = props
+
+		if (products.length === 0) {
+			throw new Error('The order must contain at least one product')
+		}
+
 		this.props = props
 	}
 
