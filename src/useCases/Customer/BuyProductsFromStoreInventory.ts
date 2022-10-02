@@ -1,8 +1,9 @@
-import { Inventory } from "../../entities/Inventory"
 import { Product } from "../../entities/Product"
 import { Store } from "../../entities/Store"
 import { Customer } from "../../entities/Customer"
 import { calculateProductsListTotalAmount } from '../../utils/calculateProductsListTotalAmount'
+import { Ticket } from "../../entities/Ticket"
+import { CreateOrderTicket } from "../Order/createOrderTicket"
 
 interface BuyProductsFromStoreInventoryRequest {
 	orderProducts: Product[]
@@ -10,7 +11,7 @@ interface BuyProductsFromStoreInventoryRequest {
 	customer: Customer
 }
 
-type BuyProductsFromStoreInventoryResponse = Product[]
+type BuyProductsFromStoreInventoryResponse = Ticket
 
 export class BuyProductsFromStoreInventory {
 	async execute(request: BuyProductsFromStoreInventoryRequest): Promise<BuyProductsFromStoreInventoryResponse> {
@@ -40,6 +41,11 @@ export class BuyProductsFromStoreInventory {
 		customer.balance = customer.balance - orderTotalAmount
 		customer.products = orderProducts
 
-		return customer.products
+		const createOrderTicket = new CreateOrderTicket()
+
+		return createOrderTicket.execute({
+			orderProducts: orderProducts,
+			orderAmount: orderTotalAmount
+		})
 	}
 }

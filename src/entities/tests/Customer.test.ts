@@ -6,8 +6,8 @@ import { Customer } from "../Customer";
 test('create customer', () => {
 	const randomId = uuidv4()
 
-	const productA = new Product({ id: randomId, name: "productA", price: 27.5 })
-	const productB = new Product({ id: randomId, name: "productA", price: 10 })
+	const productA = new Product({ id: uuidv4(), name: "productA", price: 50, amount: 2 })
+	const productB = new Product({ id: uuidv4(), name: "productB", price: 20, amount: 3 })
 
 	const customer = new Customer({
 		id: randomId,

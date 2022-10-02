@@ -5,7 +5,7 @@ import { Product } from "../Product"
 test('create product', () => {
   const randomId = uuidv4().toString()
 
-  const product = new Product({ id: randomId, name: "any product", price: 10 })
+  const product = new Product({ id: randomId, name: "productA", price: 50, amount: 2 })
 
   expect(product).toBeInstanceOf(Product)
   expect(product.id).toEqual(randomId)

@@ -5,6 +5,7 @@ import { Product } from "../../../entities/Product";
 import { Customer } from "../../../entities/Customer";
 import { Store } from "../../../entities/Store";
 import { Inventory } from "../../../entities/Inventory";
+import { Ticket } from "../../../entities/Ticket";
 
 describe('buy products from store inventory', () => {
 	let buyProductsFromStoreInventory: BuyProductsFromStoreInventory
@@ -66,5 +67,13 @@ describe('buy products from store inventory', () => {
 		const product = inventory.products.find(product => product.name === 'productA')
 		expect(balance).toEqual(100)
 		expect(product?.amount).toEqual(2)
+	})
+
+	it('should be able to return order Ticket', () => {
+		expect(buyProductsFromStoreInventory.execute({
+			store: store,
+			customer: customer,
+			orderProducts: [customerProductA]
+		})).resolves.toBeInstanceOf(Ticket)
 	})
 })
