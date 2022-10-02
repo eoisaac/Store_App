@@ -26,7 +26,15 @@ export class Customer {
 		return this.props.balance
 	}
 
+	set balance(balance: number) {
+		this.props.balance = balance
+	}
+
 	get products() {
 		return this.props.products
+	}
+
+	set products(products: Product[]) {
+		this.props.products = products
 	}
 }

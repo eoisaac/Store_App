@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Product } from '../../entities/Product'
 import { Order } from '../../entities/Order'
+import { Product } from '../../entities/Product';
 import { calculateProductsListTotalAmount } from '../../utils/calculateProductsListTotalAmount'
 
 interface CreateNewOrderRequest {
